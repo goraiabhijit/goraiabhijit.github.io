@@ -1,10 +1,10 @@
 /* Color Palette Variables */
 :root {
-    --sage-green: #CFDBDS;
-    --cream: #E8EDDF;
-    --golden-yellow: #F5CB5C;
-    --charcoal: #242423;
-    --dark-gray: #333533;
+    --dark-purple: #0d060f;
+    --dark-green: #1e2824;
+    --brown: #b3cc43;
+    --gray: #766b65;
+    --dark-red: #230000;
 }
 
 /* Reset and Base Styles */
@@ -17,8 +17,8 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     line-height: 1.6;
-    color: var(--charcoal);
-    background-color: var(--cream);
+    color: #e0e0e0;
+    background-color: var(--dark-purple);
     overflow-x: hidden;
 }
 
@@ -30,7 +30,7 @@ body {
 
 /* Header and Navigation */
 .header {
-    background-color: var(--charcoal);
+    background-color: var(--dark-red);
     color: white;
     padding: 1rem 0;
     position: fixed;
@@ -50,7 +50,7 @@ body {
 }
 
 .logo h2 {
-    color: var(--golden-yellow);
+    color: #c99a5f;
     font-size: 1.5rem;
     font-weight: 600;
 }
@@ -69,7 +69,7 @@ body {
 }
 
 .nav-menu a:hover {
-    color: var(--golden-yellow);
+    color: #c99a5f;
 }
 
 /* Hamburger Menu */
@@ -82,7 +82,7 @@ body {
 .hamburger .bar {
     width: 25px;
     height: 3px;
-    background-color: var(--golden-yellow);
+    background-color: #c99a5f;
     margin: 3px 0;
     transition: 0.3s;
 }
@@ -106,7 +106,7 @@ main {
 
 /* Hero Section */
 .hero-section {
-    background: linear-gradient(135deg, var(--sage-green) 0%, var(--cream) 100%);
+    background: linear-gradient(135deg, var(--dark-green) 0%, var(--dark-purple) 100%);
     padding: 100px 0;
     min-height: 80vh;
     display: flex;
@@ -133,7 +133,7 @@ main {
     height: 250px;
     object-fit: cover;
     border-radius: 50%;
-    border: 4px solid var(--golden-yellow);
+    border: 4px solid #c99a5f;
     box-shadow: 0 10px 30px rgba(0,0,0,0.2);
     transition: transform 0.3s ease;
     display: block;
@@ -145,14 +145,15 @@ main {
 
 .hero-content h1 {
     font-size: 3rem;
-    color: var(--charcoal);
+    color: #ffffff;
     margin-bottom: 1rem;
     font-weight: 700;
+    text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
 }
 
 .hero-subtitle {
     font-size: 1.3rem;
-    color: var(--dark-gray);
+    color: #d0d0d0;
     margin-bottom: 2rem;
     font-weight: 300;
 }
@@ -175,24 +176,24 @@ main {
 }
 
 .btn-primary {
-    background-color: var(--golden-yellow);
-    color: var(--charcoal);
+    background-color: #8b5e2b;
+    color: #ffffff;
 }
 
 .btn-primary:hover {
-    background-color: #E6B84A;
+    background-color: #a37035;
     transform: translateY(-2px);
 }
 
 .btn-secondary {
     background-color: transparent;
-    color: var(--charcoal);
-    border: 2px solid var(--charcoal);
+    color: #ffffff;
+    border: 2px solid #c99a5f;
 }
 
 .btn-secondary:hover {
-    background-color: var(--charcoal);
-    color: white;
+    background-color: #8b5e2b;
+    color: #ffffff;
     transform: translateY(-2px);
 }
 
@@ -202,22 +203,23 @@ main {
 }
 
 .about-section {
-    background-color: white;
+    background-color: var(--dark-green);
 }
 
 .projects-section {
-    background-color: var(--sage-green);
+    background-color: var(--dark-purple);
 }
 
 .contact-section {
-    background-color: var(--cream);
+    background-color: var(--dark-green);
 }
 
 .about-section h2, .projects-section h2, .contact-section h2 {
     font-size: 2.5rem;
     text-align: center;
     margin-bottom: 2rem;
-    color: var(--charcoal);
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
 .about-section p, .projects-section p {
@@ -225,7 +227,7 @@ main {
     font-size: 1.1rem;
     max-width: 600px;
     margin: 0 auto;
-    color: var(--dark-gray);
+    color: #f0f0f0;
 }
 
 /* Projects Section */
@@ -240,7 +242,7 @@ main {
 }
 
 .project-card {
-    background-color: white;
+    background-color: var(--dark-green);
     border-radius: 15px;
     padding: 2rem;
     box-shadow: 0 10px 30px rgba(0,0,0,0.1);
@@ -255,13 +257,13 @@ main {
 }
 
 .project-card h3 {
-    color: var(--charcoal);
+    color: #ffffff;
     margin-bottom: 1rem;
     font-size: 1.4rem;
 }
 
 .project-card p {
-    color: var(--dark-gray);
+    color: #f0f0f0;
     margin-bottom: 1.5rem;
     line-height: 1.6;
 }
@@ -296,8 +298,8 @@ main {
     align-items: center;
     gap: 0.5rem;
     padding: 12px 24px;
-    background-color: var(--charcoal);
-    color: white;
+    background-color: var(--dark-red);
+    color: #ffffff;
     text-decoration: none;
     border-radius: 25px;
     transition: all 0.3s ease;
@@ -305,16 +307,16 @@ main {
 }
 
 .social-link:hover {
-    background-color: var(--golden-yellow);
-    color: var(--charcoal);
+    background-color: #b8813a;
+    color: #ffffff;
     transform: translateY(-3px);
     box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
 /* Footer */
 .footer {
-    background-color: var(--charcoal);
-    color: white;
+    background-color: var(--dark-red);
+    color: #f5f5f5;
     text-align: center;
     padding: 30px 0;
 }
@@ -335,7 +337,7 @@ main {
         left: -100%;
         top: 80px;
         flex-direction: column;
-        background-color: var(--charcoal);
+        background-color: var(--dark-red);
         width: 100%;
         text-align: center;
         transition: 0.3s;
