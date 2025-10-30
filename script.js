@@ -92,27 +92,4 @@ document.addEventListener('DOMContentLoaded', function() {
 
 window.addEventListener('scroll', revealOnScroll);
 
-// Google Form submission handler
-var submitted = false;
-
-document.addEventListener('DOMContentLoaded', function() {
-    const contactForm = document.getElementById('contactForm');
-    
-    if (contactForm) {
-        // Set form action to Google Form submission URL
-        contactForm.action = 'https://docs.google.com/forms/d/e/1FAIpQLSdXbAZPZl-xHfz2nbvnqXp_1IMkxLmcdmnbFHybwnSAvJkBxQ/formResponse';
-        
-        // Listen for iframe load (submission complete)
-        const hiddenIframe = document.getElementById('hidden_iframe');
-        hiddenIframe.onload = function() {
-            if (submitted) {
-                // Show success message
-                alert('Thank you! Your message has been sent successfully.');
-                
-                // Reset form
-                contactForm.reset();
-                submitted = false;
-            }
-        };
-    }
-});
+// Removed Google Form submission handler per request (form/iframe removed)

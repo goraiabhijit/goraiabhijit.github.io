@@ -236,6 +236,13 @@ main {
     text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
 }
 
+.about-section h3 {
+    text-align: center;
+    color: #ffffff;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
 .about-section p, .projects-section p {
     text-align: center;
     font-size: 1.1rem;
@@ -397,6 +404,74 @@ textarea.form-input {
     font-size: 1.1rem;
     cursor: pointer;
     align-self: center;
+}
+
+/* Tech badges (badge-style layout like GitHub profile) */
+.tech-badges {
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    margin-top: 24px;
+    max-width: 60%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.tech-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 28px;
+    border-radius: 6px;
+    font-size: 16px;
+    font-weight: 700;
+    letter-spacing: 0.8px;
+    color: white;
+    text-transform: uppercase;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    min-width: 120px;
+}
+
+.tech-badge:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+}
+
+/* Individual badge colors matching the image */
+.tech-badge.html-badge { background: #e34f26; }
+.tech-badge.css-badge  { background: #1572b6; }
+.tech-badge.js-badge   { background: #f7df1e; color: #000; }
+.tech-badge.java-badge { background: #007396; }
+.tech-badge.c-badge    { background: #555; }
+.tech-badge.python-badge { background: #3776ab; }
+.tech-badge.react-badge { background: #61dafb; color: #000; }
+.tech-badge.nextjs-badge { background: #000000; }
+.tech-badge.git-badge { background: #f05032; }
+.tech-badge.github-badge { background: #181717; }
+
+@media (max-width: 768px) {
+    .tech-badges { 
+        max-width: 80%;
+        gap: 10px;
+    }
+    .tech-badge { 
+        font-size: 14px; 
+        padding: 10px 24px;
+        min-width: 100px;
+    }
+}
+
+@media (max-width: 480px) {
+    .tech-badges { 
+        max-width: 95%;
+    }
+    .tech-badge { 
+        font-size: 13px; 
+        padding: 8px 20px;
+        min-width: 90px;
+    }
 }
 
 .btn-submit:hover {
