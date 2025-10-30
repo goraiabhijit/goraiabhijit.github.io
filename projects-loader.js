@@ -8,7 +8,10 @@ const projectFolders = [
 async function loadProjects() {
     const projectsContainer = document.querySelector('.projects-container');
     
-    if (!projectsContainer) return;
+    if (!projectsContainer) {
+        console.error('Projects container not found');
+        return;
+    }
     
     // Clear existing content
     projectsContainer.innerHTML = '';
@@ -17,13 +20,33 @@ async function loadProjects() {
     for (const folder of projectFolders) {
         try {
             const response = await fetch(`projects/${folder}/project.json`);
+            
+            if (!response.ok) {
+                throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            
             const project = await response.json();
+            
+            // Validate project data
+            if (!project.title || !project.coverImage) {
+                throw new Error('Invalid project data: missing required fields');
+            }
             
             // Create project card
             const projectCard = createProjectCard(project);
             projectsContainer.appendChild(projectCard);
         } catch (error) {
             console.error(`Error loading project ${folder}:`, error);
+            // Create error card to show which project failed
+            const errorCard = document.createElement('div');
+            errorCard.className = 'project-card';
+            errorCard.innerHTML = `
+                <div class="project-content">
+                    <h3>Error Loading Project</h3>
+                    <p>Failed to load ${folder}. Check console for details.</p>
+                </div>
+            `;
+            projectsContainer.appendChild(errorCard);
         }
     }
 }
