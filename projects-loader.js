@@ -69,7 +69,7 @@ function createProjectCard(project) {
             </video>
         `;
     } else {
-        coverHTML = `<img src="${project.coverImage}" alt="${project.title}">`;
+        coverHTML = `<img src="${project.coverImage}" alt="${project.title}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EImage not found%3C/text%3E%3C/svg%3E'">`;
     }
     
     // Build buttons HTML
@@ -77,17 +77,17 @@ function createProjectCard(project) {
     
     // Add Live Demo button only if website link exists
     if (project.links.website && project.links.website.trim() !== '') {
-        buttonsHTML += `<a href="${project.links.website}" target="_blank" class="btn btn-demo">Live Demo</a>`;
+        buttonsHTML += `<a href="${project.links.website}" target="_blank" rel="noopener noreferrer" class="btn btn-demo">Live Demo</a>`;
     }
     
     // Add View Code button
     if (project.links.github && project.links.github.trim() !== '') {
-        buttonsHTML += `<a href="${project.links.github}" target="_blank" class="btn btn-primary">View Code</a>`;
+        buttonsHTML += `<a href="${project.links.github}" target="_blank" rel="noopener noreferrer" class="btn btn-primary">View Code</a>`;
     }
     
     // Add LinkedIn Post button
     if (project.links.linkedin && project.links.linkedin.trim() !== '') {
-        buttonsHTML += `<a href="${project.links.linkedin}" target="_blank" class="btn btn-linkedin">LinkedIn Post</a>`;
+        buttonsHTML += `<a href="${project.links.linkedin}" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">LinkedIn Post</a>`;
     }
     
     card.innerHTML = `
