@@ -72,6 +72,9 @@ function createProjectCard(project) {
   // Build buttons HTML
   let buttonsHTML = "";
 
+  // Add Preview Toggle button
+  buttonsHTML += `<button type="button" class="btn btn-preview-toggle">Preview Image</button>`;
+
   // Add Live Demo button only if website link exists
   if (project.links.website && project.links.website.trim() !== "") {
     buttonsHTML += `<a href="${project.links.website}" target="_blank" rel="noopener noreferrer" class="btn btn-demo">Live Demo</a>`;
@@ -99,6 +102,30 @@ function createProjectCard(project) {
             </div>
         </div>
     `;
+
+  // Make the entire card clickable, except for the link buttons
+  card.addEventListener('click', (e) => {
+    const btn = e.target.closest('.btn');
+    
+    // Handle specific preview toggle button
+    if (btn && btn.classList.contains('btn-preview-toggle')) {
+      e.stopPropagation();
+      if (card.classList.contains('preview-active')) {
+        card.classList.remove('preview-active');
+        btn.textContent = 'Preview Image';
+      } else {
+        card.classList.add('preview-active');
+        btn.textContent = 'Hide Preview';
+      }
+      return;
+    }
+    
+    // If the click is on any other button, don't redirect to project.html
+    if (btn) return;
+    
+    // Otherwise redirect
+    window.location.href = `project.html?id=${folder}`;
+  });
 
   return card;
 }

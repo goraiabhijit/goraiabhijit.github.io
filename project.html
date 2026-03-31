@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Project details" />
+    <title>Abhijit Gorai - Project Details</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      .project-detail-section {
+        padding: 8rem 0 4rem;
+        min-height: 80vh;
+      }
+      .project-header {
+        text-align: center;
+        margin-bottom: 3rem;
+      }
+      .project-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--text-main);
+      }
+      .project-meta {
+        display: flex;
+        justify-content: center;
+        gap: 1rem;
+        margin-bottom: 2rem;
+      }
+      .project-cover {
+        width: 100%;
+        max-width: 800px;
+        height: auto;
+        max-height: 450px;
+        object-fit: contain;
+        border-radius: 12px;
+        margin: 0 auto 3rem;
+        display: block;
+        background: #111;
+        border: 1px solid var(--border-color);
+      }
+      .project-content {
+        max-width: 800px;
+        margin: 0 auto;
+        color: var(--text-muted);
+        line-height: 1.8;
+        font-size: 1.05rem;
+      }
+      /* Markdown content styling */
+      .project-content h1, .project-content h2, .project-content h3 {
+        color: var(--text-main);
+        margin-top: 2.5rem;
+        margin-bottom: 1rem;
+      }
+      .project-content p {
+        margin-bottom: 1.5rem;
+      }
+      .project-content a {
+        color: #93c5fd;
+        text-decoration: none;
+      }
+      .project-content a:hover {
+        text-decoration: underline;
+      }
+      .project-content ul {
+        margin-bottom: 1.5rem;
+        padding-left: 2rem;
+      }
+      .project-content li {
+        margin-bottom: 0.5rem;
+      }
+      .project-content code {
+        background: #1a1a1a;
+        padding: 0.2rem 0.4rem;
+        border-radius: 4px;
+        font-family: monospace;
+        font-size: 0.9em;
+        border: 1px solid #333;
+      }
+      .project-content img {
+        max-width: 100%;
+        border-radius: 8px;
+        margin: 2rem 0;
+      }
+      
+      .loading {
+        text-align: center;
+        font-size: 1.2rem;
+        color: var(--text-muted);
+        padding: 4rem;
+      }
+      .back-btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.5rem;
+        color: var(--text-muted);
+        text-decoration: none;
+        margin-bottom: 2rem;
+        font-weight: 500;
+        transition: color 0.2s;
+      }
+      .back-btn:hover {
+        color: var(--text-main);
+      }
+    </style>
+  </head>
+  <body>
+    <header class="header">
+      <div class="nav-container">
+        <a href="index.html" class="logo">
+          Abhijit
+        </a>
+        <nav class="nav-menu">
+          <ul>
+            <li><a href="index.html#home">Home</a></li>
+            <li><a href="index.html#projects">Projects</a></li>
+            <li><a href="index.html#about">About</a></li>
+            <li><a href="index.html#contact">Contact</a></li>
+          </ul>
+        </nav>
+        <div class="hamburger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
+        </div>
+      </div>
+    </header>
+
+    <main>
+      <section class="project-detail-section">
+        <div class="container" id="project-container">
+          <!-- Dynamic content will run here -->
+          <div class="loading">Loading project details...</div>
+        </div>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="container">
+        <p>&copy; Abhijit Gorai. All rights reserved.</p>
+      </div>
+    </footer>
+
+    <!-- Marked.js for rendering markdown -->
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="script.js"></script>
+    <script src="project-detail.js"></script>
+  </body>
+</html>

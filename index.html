@@ -12,19 +12,22 @@
       name="google-site-verification"
       content="X0WOWoXpcC5BfUu3qs-3rbl--YVYTITxQtuFh7NATPQ"
     />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
     <header class="header">
       <div class="nav-container">
-        <div class="logo">
-          <h2>Abhijit Gorai</h2>
-        </div>
+        <a href="#home" class="logo">
+          Abhijit
+        </a>
         <nav class="nav-menu">
           <ul>
             <li><a href="#home">Home</a></li>
-            <li><a href="#about">About</a></li>
             <li><a href="#projects">Projects</a></li>
+            <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
           </ul>
         </nav>
@@ -39,56 +42,87 @@
     <main>
       <section id="home" class="hero-section">
         <div class="hero-container">
-          <div class="profile-image">
-            <img
-              src="https://pbs.twimg.com/profile_images/1963176553912877056/nG5jHaJs.jpg"
-              alt="Abhijit Gorai"
-              class="profilepic"
-            />
-          </div>
           <div class="hero-content">
-            <h1>Welcome to My Portfolio</h1>
-            <p class="hero-subtitle">Developer</p>
-            <div class="cta-buttons">
-              <a href="#projects" class="btn btn-primary">View Projects</a>
-              <a href="#contact" class="btn btn-secondary">Get In Touch</a>
-            </div>
+            <h1>Hi, I'm Abhijit.</h1>
+            <p class="hero-subtitle">I build things</p>
+            <p class="hero-description">A 2nd-year B.Tech student specializing in web development and React Native.</p>
+            <a href="#projects" class="btn btn-outline">View My Work <span class="arrow">&rsaquo;</span></a>
+          </div>
+          <div class="hero-image">
+            <img src="https://pbs.twimg.com/profile_images/1963176553912877056/nG5jHaJs.jpg" alt="Abhijit Gorai" class="profilepic" />
           </div>
         </div>
       </section>
 
-      <section id="about" class="about-section">
+      <section id="about" class="skills-section">
         <div class="container">
-          <h2>About Me</h2>
-          <p></p>
+          <h2 class="section-title" style="text-align: center;">About Me</h2>
+          
+          <div class="skills-table">
+            <div class="skills-row">
+              <div class="skills-category-name">Tech stack I know</div>
+              <div class="skills-list">
+                <div class="skill-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-original.svg" alt="HTML5" />
+                  <span>HTML5</span>
+                </div>
+                <div class="skill-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/css3/css3-original.svg" alt="CSS3" />
+                  <span>CSS3</span>
+                </div>
+                <div class="skill-badge badge-glow-js">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/javascript/javascript-original.svg" alt="JavaScript" />
+                  <span>JavaScript</span>
+                </div>
+                <div class="skill-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/java/java-original.svg" alt="Java" />
+                  <span>Java</span>
+                </div>
+                <div class="skill-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/c/c-original.svg" alt="C" />
+                  <span>C</span>
+                </div>
+                <div class="skill-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-original.svg" alt="Python" />
+                  <span>Python</span>
+                </div>
+              </div>
+            </div>
 
-          <h3>Tech stack I know</h3>
-          <div class="tech-badges">
-            <span class="tech-badge html-badge">HTML5</span>
-            <span class="tech-badge css-badge">CSS3</span>
-            <span class="tech-badge js-badge">JAVASCRIPT</span>
-            <span class="tech-badge java-badge">JAVA</span>
-            <span class="tech-badge c-badge">C</span>
-            <span class="tech-badge python-badge">PYTHON</span>
-          </div>
+            <div class="skills-row">
+              <div class="skills-category-name">Frameworks & Libraries</div>
+              <div class="skills-list">
+                <div class="skill-badge badge-glow-react">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/react/react-original.svg" alt="React" />
+                  <span>React</span>
+                </div>
+                <div class="skill-badge">
+                   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/nextjs/nextjs-original.svg" class="invert-dark" alt="Next.js" />
+                  <span>Next.js</span>
+                </div>
+              </div>
+            </div>
 
-          <h3 style="margin-top: 3rem">Frameworks & Libraries</h3>
-          <div class="tech-badges">
-            <span class="tech-badge react-badge">REACT</span>
-            <span class="tech-badge nextjs-badge">NEXT.JS</span>
-          </div>
-
-          <h3 style="margin-top: 3rem">Tools I know</h3>
-          <div class="tech-badges">
-            <span class="tech-badge git-badge">GIT</span>
-            <span class="tech-badge github-badge">GITHUB</span>
+            <div class="skills-row">
+              <div class="skills-category-name">Tools I know</div>
+              <div class="skills-list">
+                <div class="skill-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/git/git-original.svg" alt="Git" />
+                  <span>Git</span>
+                </div>
+                <div class="skill-badge">
+                  <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/github/github-original.svg" class="invert-dark" alt="GitHub" />
+                  <span>GitHub</span>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </section>
 
       <section id="projects" class="projects-section">
         <div class="container">
-          <h2>My Projects</h2>
+          <h2 class="section-title">My Projects</h2>
           <div class="projects-container">
             <!-- Projects will be dynamically loaded here by projects-loader.js -->
           </div>
@@ -97,9 +131,7 @@
 
       <section id="contact" class="contact-section">
         <div class="container">
-          <h2>Get in Touch</h2>
-
-          <!-- Contact form removed as requested. Use social links below to connect. -->
+          <h2 class="section-title">Get in Touch</h2>
 
           <div class="divider">
             <span>Connect Via</span>
@@ -184,6 +216,10 @@
         <p>&copy; Abhijit Gorai. All rights reserved.</p>
       </div>
     </footer>
+
+    <!-- System UI Elements -->
+    <div id="live-clock" class="system-ui-element live-clock">00:00:00</div>
+    <div id="time-spent" class="system-ui-element time-spent">00:00</div>
 
     <script src="projects-loader.js"></script>
     <script src="script.js"></script>

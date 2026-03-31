@@ -2,10 +2,19 @@
 document.addEventListener('DOMContentLoaded', function() {
     const hamburger = document.querySelector('.hamburger');
     const navMenu = document.querySelector('.nav-menu');
+    const clockEl = document.getElementById('live-clock');
+
+    function toggleClock(isActive) {
+        if (clockEl) {
+            clockEl.style.opacity = isActive ? '0' : '1';
+            clockEl.style.visibility = isActive ? 'hidden' : 'visible';
+        }
+    }
 
     hamburger.addEventListener('click', function() {
         hamburger.classList.toggle('active');
-        navMenu.classList.toggle('active');
+        const isActive = navMenu.classList.toggle('active');
+        toggleClock(isActive);
     });
 
     // Close menu when clicking on a nav link
@@ -13,6 +22,7 @@ document.addEventListener('DOMContentLoaded', function() {
         link.addEventListener('click', function() {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            toggleClock(false);
         });
     });
 
@@ -24,33 +34,32 @@ document.addEventListener('DOMContentLoaded', function() {
         if (!isClickInsideNav && !isClickOnHamburger && navMenu.classList.contains('active')) {
             hamburger.classList.remove('active');
             navMenu.classList.remove('active');
+            toggleClock(false);
         }
     });
-});
 
-// Smooth scrolling for anchor links
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function (e) {
-        e.preventDefault();
-        const target = document.querySelector(this.getAttribute('href'));
-        if (target) {
-            target.scrollIntoView({
-                behavior: 'smooth',
-                block: 'start'
-            });
-        }
+    // Smooth scrolling for anchor links
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
     });
 });
 
 // Header background change on scroll
 window.addEventListener('scroll', function() {
     const header = document.querySelector('.header');
-    if (window.scrollY > 100) {
-        header.style.backgroundColor = 'rgba(35, 0, 0, 0.95)';
-        header.style.backdropFilter = 'blur(10px)';
+    if (window.scrollY > 50) {
+        header.classList.add('scrolled');
     } else {
-        header.style.backgroundColor = '#230000';
-        header.style.backdropFilter = 'none';
+        header.classList.remove('scrolled');
     }
 });
 
@@ -80,16 +89,31 @@ function revealOnScroll() {
     });
 }
 
-// Initialize scroll reveal
-document.addEventListener('DOMContentLoaded', function() {
-    const sections = document.querySelectorAll('.about-section, .projects-section, .contact-section');
-    sections.forEach(section => {
-        section.style.opacity = '0';
-        section.style.transform = 'translateY(50px)';
-        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
-    });
-});
-
 window.addEventListener('scroll', revealOnScroll);
 
-// Removed Google Form submission handler per request (form/iframe removed)
+// System UI Timers
+document.addEventListener('DOMContentLoaded', () => {
+    const liveClockEl = document.getElementById('live-clock');
+    const timeSpentEl = document.getElementById('time-spent');
+    
+    if(!liveClockEl || !timeSpentEl) return;
+    
+    let secondsSpent = 0;
+
+    function updateSystemUI() {
+        // Live Clock
+        const now = new Date();
+        const timeString = now.toLocaleTimeString('en-US', { hour12: false });
+        liveClockEl.textContent = timeString;
+
+        // Time Spent
+        const m = Math.floor(secondsSpent / 60).toString().padStart(2, '0');
+        const s = (secondsSpent % 60).toString().padStart(2, '0');
+        timeSpentEl.textContent = `${m}:${s} spent`;
+        secondsSpent++;
+    }
+
+    // Initial call and set interval
+    updateSystemUI();
+    setInterval(updateSystemUI, 1000);
+});
