@@ -6,7 +6,7 @@ This folder contains all your portfolio projects. Each project has its own folde
 
 ```
 projects/
-├── netflix-clone/
+├── bullsy/
 │   ├── project.json       # Project metadata and links
 │   ├── cover.jpg/mp4      # Cover image or video
 │   └── README.md          # Instructions
@@ -89,7 +89,6 @@ projects/
 
 ```javascript
 const projectFolders = [
-  "netflix-clone",
   "hand-gesture-controller",
   "calculator-app", // Add this line
 ];

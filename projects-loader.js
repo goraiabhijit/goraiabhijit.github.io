@@ -1,5 +1,5 @@
 // List of project folders
-const projectFolders = ["bullsy", "amazon-clone", "netflix-clone"];
+const projectFolders = ["bullsy"];
 
 // Function to load and display projects
 async function loadProjects() {
@@ -25,7 +25,7 @@ async function loadProjects() {
       const project = await response.json();
 
       // Validate project data
-      if (!project.title || !project.coverImage) {
+      if (!project.title) {
         throw new Error("Invalid project data: missing required fields");
       }
 
@@ -53,27 +53,8 @@ function createProjectCard(project) {
   const card = document.createElement("div");
   card.className = "project-card";
 
-  // Determine if cover is image or video
-  const coverExtension = project.coverImage.split(".").pop().toLowerCase();
-  const isVideo = ["mp4", "webm", "ogg"].includes(coverExtension);
-
-  let coverHTML;
-  if (isVideo) {
-    coverHTML = `
-            <video autoplay loop muted playsinline>
-                <source src="${project.coverImage}" type="video/${coverExtension}">
-                Your browser does not support the video tag.
-            </video>
-        `;
-  } else {
-    coverHTML = `<img src="${project.coverImage}" alt="${project.title}" loading="lazy" onerror="this.src='data:image/svg+xml,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22400%22 height=%22300%22%3E%3Crect fill=%22%23ddd%22 width=%22400%22 height=%22300%22/%3E%3Ctext fill=%22%23999%22 x=%2250%25%22 y=%2250%25%22 text-anchor=%22middle%22 dominant-baseline=%22middle%22%3EImage not found%3C/text%3E%3C/svg%3E'">`;
-  }
-
   // Build buttons HTML
   let buttonsHTML = "";
-
-  // Add Preview Toggle button
-  buttonsHTML += `<button type="button" class="btn btn-preview-toggle">Preview Image</button>`;
 
   // Add Live Demo button only if website link exists
   if (project.links.website && project.links.website.trim() !== "") {
@@ -91,9 +72,6 @@ function createProjectCard(project) {
   }
 
   card.innerHTML = `
-        <div class="project-image">
-            ${coverHTML}
-        </div>
         <div class="project-content">
             <h3>${project.title}</h3>
             <p>${project.description}</p>
@@ -104,25 +82,12 @@ function createProjectCard(project) {
     `;
 
   // Make the entire card clickable, except for the link buttons
-  card.addEventListener('click', (e) => {
-    const btn = e.target.closest('.btn');
-    
-    // Handle specific preview toggle button
-    if (btn && btn.classList.contains('btn-preview-toggle')) {
-      e.stopPropagation();
-      if (card.classList.contains('preview-active')) {
-        card.classList.remove('preview-active');
-        btn.textContent = 'Preview Image';
-      } else {
-        card.classList.add('preview-active');
-        btn.textContent = 'Hide Preview';
-      }
-      return;
-    }
-    
+  card.addEventListener("click", (e) => {
+    const btn = e.target.closest(".btn");
+
     // If the click is on any other button, don't redirect to project.html
     if (btn) return;
-    
+
     // Otherwise redirect
     window.location.href = `project.html?id=${folder}`;
   });

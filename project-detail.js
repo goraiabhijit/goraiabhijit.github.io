@@ -1,8 +1,8 @@
 // Get the project ID from URL parameters
 const urlParams = new URLSearchParams(window.location.search);
-const projectId = urlParams.get('id');
+const projectId = urlParams.get("id");
 
-const container = document.getElementById('project-container');
+const container = document.getElementById("project-container");
 
 async function loadProjectDetails() {
   if (!projectId) {
@@ -42,18 +42,6 @@ async function loadProjectDetails() {
       buttonsHTML += `<a href="${project.links.linkedin}" target="_blank" rel="noopener noreferrer" class="btn btn-linkedin">LinkedIn Post</a>`;
     }
 
-    // Determine cover media
-    const coverExtension = project.coverImage.split('.').pop().toLowerCase();
-    const isVideo = ['mp4', 'webm', 'ogg'].includes(coverExtension);
-    let coverHTML = '';
-    if (isVideo) {
-      coverHTML = `<video class="project-cover" autoplay loop muted playsinline>
-                    <source src="${project.coverImage}" type="video/${coverExtension}">
-                   </video>`;
-    } else {
-      coverHTML = `<img class="project-cover" src="${project.coverImage}" alt="${project.title}">`;
-    }
-
     // Render the final page
     container.innerHTML = `
       <a href="index.html#projects" class="back-btn">&larr; Back to Projects</a>
@@ -64,23 +52,19 @@ async function loadProjectDetails() {
           ${buttonsHTML}
         </div>
       </div>
-      
-      ${coverHTML}
-
       <div class="project-content">
         ${htmlContent}
       </div>
     `;
 
     // Make sure dynamically loaded buttons styling stays consistent
-    document.querySelectorAll('.project-meta .btn').forEach(btn => {
+    document.querySelectorAll(".project-meta .btn").forEach((btn) => {
       btn.style.border = "1px solid #333";
       btn.style.backgroundColor = "#1a1a1a";
       btn.style.color = "#dedede";
       btn.style.padding = "0.75rem 1.5rem";
       btn.style.fontSize = "0.95rem";
     });
-
   } catch (error) {
     console.error(error);
     showError(error.message);
@@ -98,4 +82,4 @@ function showError(message) {
 }
 
 // Initialize
-document.addEventListener('DOMContentLoaded', loadProjectDetails);
+document.addEventListener("DOMContentLoaded", loadProjectDetails);
